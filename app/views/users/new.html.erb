@@ -1,0 +1,15 @@
+<h1>Novo Usuário</h1>
+
+<%= form_with model: @user, local: true do |form| %>
+  <p>
+    <%= form.label :name, "Nome" %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :email, "Email" %><br>
+    <%= form.email_field :email %>
+  </p>
+
+  <%= form.submit "Cadastrar Usuário" %>
+<% end %>

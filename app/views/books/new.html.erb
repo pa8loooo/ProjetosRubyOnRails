@@ -1,0 +1,20 @@
+<h1>Novo Livro</h1>
+
+<%= form_with model: @book, local: true do |form| %>
+  <p>
+    <%= form.label :nome, "Título" %><br>
+    <%= form.text_field :nome %>
+  </p>
+
+  <p>
+    <%= form.label :author, "Autor" %><br>
+    <%= form.text_field :author %>
+  </p>
+
+  <p>
+    <%= form.label :available, "Disponível?" %><br>
+    <%= form.check_box :available %>
+  </p>
+
+  <%= form.submit "Salvar" %>
+<% end %>
