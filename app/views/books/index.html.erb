@@ -5,10 +5,10 @@
 <ul>
   <% @books.each do |book| %>
     <li>
-      <%= book.name %> - <%= book.author %>
-      <%= link_to "Ver", book_path(book) %>
+      <%= book.title %> - <%= book.author %>
+      <%= link_to "Mostrar", book_path(book) %>
       <%= link_to "Editar", edit_book_path(book) %>
-      <%= link_to "Excluir", book_path(book), method: :delete%>
+      <%= button_to "Excluir", book_path(book), method: :delete%>
     </li>
   <% end %>
 </ul>

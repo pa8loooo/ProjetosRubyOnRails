@@ -12,7 +12,7 @@ class LoansController < ApplicationController
   end
 
   def create 
-    @loan = Loan.new(emprestimo_params)
+    @loan = Loan.new(loan_params)
     if @loan.save
        @loan.book.update(available: false)
       redirect_to loan_path, notice: "Emprestimo criado"
@@ -36,6 +36,11 @@ class LoansController < ApplicationController
     @loan = Loan.find(params[:id])
     @loan.destroy
     redirect_to loan_params, notice: "Emprestimo excluido!"
+  end
+
+  def user_loans
+    @user = User.find(params[:id])
+    @loans = @user.loans
   end
 
   private 

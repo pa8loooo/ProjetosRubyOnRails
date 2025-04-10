@@ -1,9 +1,16 @@
 <h1>Usuários</h1>
-
+<%= link_to "Lista de livros", books_path%>
+<%=link_to "Novo Usuário", new_user_path%>
 <ul>
-  <% @users.each do |user| %>
-    <li>
-      <%= user.name %> - <%= user.email %>
-    </li>
-  <% end %>
+    <% @users.each do |user|%>
+<li>
+    <%= user.name %> - <%= user.email %>
+    <%= link_to "Perfil", user_path(user)%>
+    <%= link_to "Editar", edit_user_path(user)%>
+    <%= link_to "Empréstimos", loans_user_path(user)%>
+    <%= button_to "Apagar", user_path(user), method: :delete%>
+</li>
+
+<% end %>
+
 </ul>

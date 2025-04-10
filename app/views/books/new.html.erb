@@ -13,7 +13,7 @@
 
   <p>
     <%= form.label :available, "Disponível?" %><br>
-    <%= form.check_box :available %>
+    <%= form.select :available, ['Sim', 'Não'] %>
   </p>
 
   <%= form.submit "Salvar" %>

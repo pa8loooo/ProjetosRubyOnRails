@@ -1,2 +1,4 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h1>Detalhes do livro</h1>
+<h2>Título: <%= @book.title %> </h2>
+<h2>Disponibilidade:</h2> 
+<p><%= @book.available ? "Disponivel" : "Não disponivel" %></p>
