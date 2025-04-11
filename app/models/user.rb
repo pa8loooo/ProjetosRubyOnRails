@@ -1,4 +1,4 @@
 class User < ApplicationRecord
-  has_many :loans
+  has_many :loans, dependent: :destroy
   has_many :books, through: :loans
 end

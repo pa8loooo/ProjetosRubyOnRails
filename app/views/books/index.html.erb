@@ -1,14 +1,13 @@
 <h1>Lista de Livros</h1>
 
 <%= link_to "Novo Livro", new_book_path %>
-
+<%= link_to "Página Inicial", users_path %>
 <ul>
   <% @books.each do |book| %>
     <li>
       <%= book.title %> - <%= book.author %>
       <%= link_to "Mostrar", book_path(book) %>
       <%= link_to "Editar", edit_book_path(book) %>
-      <%= button_to "Excluir", book_path(book), method: :delete%>
     </li>
   <% end %>
 </ul> 

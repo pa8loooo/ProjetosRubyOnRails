@@ -1,2 +1,31 @@
-<h1>Emprestimo#edit</h1>
-<p>Find me in app/views/emprestimo/edit.html.erb</p>
+
+<h1>Editar Emprestimo</h1>
+
+<%= link_to "Página Inicial", users_path %>
+<%= form_with model: @loan, local: true do |form| %>
+   <div>
+    <%= form.label :user_id, "Usuário"%>
+    <%= form.collection_select :user_id, @users, :id, :name%>
+   </div>
+   <div>
+    <%= form.label :book_id, "Livro"%>
+    <%= form.collection_select :book_id, @books, :id, :title%>
+   </div>
+   
+   <div>
+    <%= form.label :start_date, "Data de Inicio"%>
+    <%= form.date_field :start_date%>
+   </div>
+   
+   <div>
+    <%= form.label :end_date, "Data de Devolução"%>
+    <%= form.date_field :end_date%>
+   </div>
+
+   <div>
+    <%= form.submit "Atualizar" %>
+   </div>
+<% end %>
+<hr>
+<%= button_to "Excluir Empréstimo", loan_path(@loan), method: :delete%>
+<%= link_to "Voltar", users_path%>

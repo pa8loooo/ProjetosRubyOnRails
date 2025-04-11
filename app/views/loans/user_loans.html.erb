@@ -1,1 +1,14 @@
-<h1>Lista de Empréstimos</h1>
+<h1>Lista de Emprestimos</h1>
+
+<%= link_to "Novo Empréstimo", new_loan_path %>
+<%= link_to "Página Inicial", users_path%>
+
+<ul>
+    <% @loans.each do |loan| %>
+    <li>
+        <strong>Usuário: </strong><%= loan.user.name %>
+        <strong>Livro: </strong><%= loan.book.title%>
+        <%= link_to "Editar", edit_loan_path(loan)%>
+    </li>
+    <% end %>
+</ul>

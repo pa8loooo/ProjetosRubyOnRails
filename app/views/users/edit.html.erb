@@ -1,2 +1,19 @@
-<h1>User#edit</h1>
-<p>Find me in app/views/user/edit.html.erb</p>
+<h1>Editar Usuário</h1>
+
+<%= link_to "Página Inicial", users_path %>
+<%= form_with model: @user, local: true do |form|%>
+   <div>
+    <%= form.label :name, "Usuário"%>
+    <%= form.text_field :name%>
+   </div>
+   <div>
+    <%= form.label :email, "Email"%>
+    <%= form.email_field :email%>
+   </div>
+   <div>
+    <%= form.submit "Salvar" %>
+   </div>
+<% end %>
+<hr>
+<%= button_to "Excluir Usuário", user_path(@user), method: :delete%>
+<%= link_to "Voltar", users_path%>

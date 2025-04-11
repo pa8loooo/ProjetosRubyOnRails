@@ -1,15 +1,29 @@
-<h1>Novo Usuário</h1>
+<h1>Novo Empréstimo</h1>
 
-<%= form_with model: @user, local: true do |form| %>
-  <p>
-    <%= form.label :name, "Nome" %><br>
-    <%= form.text_field :name %>
-  </p>
+<%= link_to "Página Inicial", users_path %>
+<%= link_to "Livros", books_path %>
 
-  <p>
-    <%= form.label :email, "Email" %><br>
-    <%= form.email_field :email %>
-  </p>
+<%= form_with(model: @loan, local: true) do |form| %>
+  <div>
+    <%= form.label :user_id, "Usuário" %><br>
+    <%= form.collection_select :user_id, @users, :id, :name %>
+  </div>
 
-  <%= form.submit "Cadastrar Usuário" %>
+  <div>
+    <%= form.label :book_id, "Livro" %><br>
+    <%= form.collection_select :book_id, @books, :id, :title %>
+  </div>
+
+  <div>
+    <%= form.label :start_date, "Data de Início"%>
+    <%= form.date_field :start_date%>
+  </div>
+
+  <div>
+    <%= form.label :end_date, "Data de Devolução"%>
+    <%= form.date_field :end_date%>
+  </div>
+  <div>
+  <%= form.submit "Criar Empréstimo" %>
+  </div>
 <% end %>
